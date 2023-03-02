@@ -5,6 +5,7 @@ class Client {
     private String country;
     private double value;
 
+
     public Client(int id, String firstName, String lastName, String country, double value) {
         this.id = id;
         this.firstName = firstName;
