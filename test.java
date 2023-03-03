@@ -4,7 +4,8 @@ public class test {
         ClientList test = new ClientList();
         ReadFromFile test1 = new ReadFromFile();
         test1.crateList();
-        System.out.println(test);
+        test.higestValue();
+        test.searchByCountry();
 
     }
 }

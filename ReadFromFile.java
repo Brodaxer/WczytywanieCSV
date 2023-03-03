@@ -8,7 +8,7 @@ class ReadFromFile {
     private String[] client;
 
 
-    public static int  countLinesOfFile() {
+    public static int countLinesOfFile() {
 
         File myObj = new File("src/clients.csv");
         try (
@@ -23,6 +23,7 @@ class ReadFromFile {
         }
         return lines;
     }
+
     public ClientList crateList() {
 
         File myObj = new File("src/clients.csv");
@@ -34,7 +35,7 @@ class ReadFromFile {
             while ((line = reader.readLine()) != null) {
 
                 client = line.split(",");
-                if (Objects.equals(client[0], "id")){
+                if (Objects.equals(client[0], "id")) {
                     continue;
                 }
                 ClientList.clients[count] = readAndCreatClient();
@@ -46,12 +47,13 @@ class ReadFromFile {
         }
         return new ClientList();
     }
-    private Client readAndCreatClient (){
+
+    private Client readAndCreatClient() {
         int id = Integer.parseInt(client[0]);
         String firstName = client[1];
         String lastName = client[2];
         String country = client[3];
-        double value =Double.parseDouble(client[4]);
-        return new Client(id,firstName,lastName,country,value);
+        double value = Double.parseDouble(client[4]);
+        return new Client(id, firstName, lastName, country, value);
     }
 }
