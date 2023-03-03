@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.Objects;
 
 class ReadFromFile {
 
@@ -29,11 +30,16 @@ class ReadFromFile {
                 var fileReader = new FileReader(myObj);
                 var reader = new BufferedReader(fileReader);
         ) {
-            while (reader.readLine() != null) {
-                String line = reader.readLine();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+
                 client = line.split(",");
+                if (Objects.equals(client[0], "id")){
+                    continue;
+                }
                 ClientList.clients[count] = readAndCreatClient();
                 count++;
+
             }
         } catch (IOException e) {
             e.printStackTrace();

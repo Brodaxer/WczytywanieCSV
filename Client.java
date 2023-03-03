@@ -56,6 +56,6 @@ class Client {
 
     @Override
     public String toString() {
-        return id + ": " + firstName + " " + lastName + "," + country + ", " + value + "zl";
+        return id + ": " + firstName + " " + lastName + "," + country + ", " + value + "zl\n";
     }
 }
