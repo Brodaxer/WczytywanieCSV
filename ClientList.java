@@ -22,12 +22,11 @@ public class ClientList {
         System.out.println("\nPodaj nazwe kraju z ktorego kliecni cie interesuja: ");
         Scanner sc = new Scanner(System.in);
         String search = sc.nextLine();
+        System.out.println("Klienci z kraju " + search);
         for (Client country : clients) {
             if (Objects.equals(country.getCountry(), search)) {
-                System.out.println("Klienci z kraju "+ search);
+
                 System.out.println(country);
-            }else {
-                System.out.println("Brak klientow");
             }
         }
     }
