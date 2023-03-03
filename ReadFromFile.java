@@ -1,10 +1,12 @@
 import java.io.*;
 
 class ReadFromFile {
-    private String[] client ;
+
     static int lines = 0;
     private int count = 0;
-    public static Client[] clientsFromString = new Client[lines];
+    private String[] client;
+
+
     public static int  countLinesOfFile() {
 
         File myObj = new File("src/clients.csv");
@@ -20,7 +22,7 @@ class ReadFromFile {
         }
         return lines;
     }
-    public void readList() {
+    public ClientList crateList() {
 
         File myObj = new File("src/clients.csv");
         try (
@@ -29,13 +31,14 @@ class ReadFromFile {
         ) {
             while (reader.readLine() != null) {
                 String line = reader.readLine();
-                String [] client = line.split(",");
-                clientsFromString[count] = readAndCreatClient();
+                client = line.split(",");
+                ClientList.clients[count] = readAndCreatClient();
                 count++;
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return new ClientList();
     }
     private Client readAndCreatClient (){
         int id = Integer.parseInt(client[0]);
