@@ -24,7 +24,10 @@ public class ClientList {
         String search = sc.nextLine();
         for (Client country : clients) {
             if (Objects.equals(country.getCountry(), search)) {
+                System.out.println("Klienci z kraju "+ search);
                 System.out.println(country);
+            }else {
+                System.out.println("Brak klientow");
             }
         }
     }
