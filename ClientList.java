@@ -7,26 +7,29 @@ public class ClientList {
     static Client[] clients = new Client[size - 1];
 
     public Client higestValue() {
-        double value = 0;
+        Client clientWithHigestValue = new Client(0,"","","",0);
         for (Client client : clients) {
-            if (client.getValue() > value) {
-                value = client.getValue();
+            if (client.getValue() > clientWithHigestValue.getValue()) {
+                clientWithHigestValue = client;
             }
         }
-        for (Client client : clients){
-            if (client.getValue()==value){
-                return client;
-            }
-        }return null;
+        return clientWithHigestValue;
     }
 
+
     public String searchByCountry(String search) {
+        boolean a = false;
         StringBuilder list = new StringBuilder();
         for (Client country : clients) {
             if (Objects.equals(country.getCountry(), search)) {
                 list.append(country).append("\n");
+                a = true;
             }
-        }return list.toString();
+        }
+        if (!a) {
+            list = new StringBuilder("Brak klintow");
+        }
+        return list.toString();
     }
 
     @Override
