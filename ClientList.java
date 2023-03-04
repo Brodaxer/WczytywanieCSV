@@ -3,29 +3,26 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class ClientList {
-    private double value = 0;
-
     private static int size = ReadFromFile.countLinesOfFile();
     static Client[] clients = new Client[size - 1];
 
-    public void higestValue() {
-        System.out.println("Najbardziej wartosciowy klient to : ");
+    public Client higestValue() {
+        double value = 0;
         for (Client client : clients) {
             if (client.getValue() > value) {
                 value = client.getValue();
-                System.out.print("\r" + client);
             }
         }
+        for (Client client : clients){
+            if (client.getValue()==value){
+                return client;
+            }
+        }return null;
     }
 
-    public void searchByCountry() {
-        System.out.println("\nPodaj nazwe kraju z ktorego kliecni cie interesuja: ");
-        Scanner sc = new Scanner(System.in);
-        String search = sc.nextLine();
-        System.out.println("Klienci z kraju " + search);
+    public void searchByCountry(String search) {
         for (Client country : clients) {
             if (Objects.equals(country.getCountry(), search)) {
-
                 System.out.println(country);
             }
         }
