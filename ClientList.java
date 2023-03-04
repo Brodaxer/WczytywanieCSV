@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Objects;
-import java.util.Scanner;
+
 
 public class ClientList {
     private static int size = ReadFromFile.countLinesOfFile();
@@ -20,12 +20,13 @@ public class ClientList {
         }return null;
     }
 
-    public void searchByCountry(String search) {
+    public String searchByCountry(String search) {
+        StringBuilder list = new StringBuilder();
         for (Client country : clients) {
             if (Objects.equals(country.getCountry(), search)) {
-                System.out.println(country);
+                list.append(country).append("\n");
             }
-        }
+        }return list.toString();
     }
 
     @Override

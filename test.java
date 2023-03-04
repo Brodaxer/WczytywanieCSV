@@ -11,7 +11,7 @@ public class test {
         Scanner sc = new Scanner(System.in);
         String search = sc.nextLine();
         System.out.println("Klienci z kraju " + search);
-        test.searchByCountry(search);
+        System.out.println(test.searchByCountry(search));
 //        test.run();
     }
 }
